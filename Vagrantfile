@@ -71,6 +71,9 @@ Vagrant.configure("2") do |config|
 
         node.vm.provision "setup-dns", type: "shell", :path => "ubuntu/update-dns.sh"
 
+        # Install kubeadm and related stuff all-at-once for dummy.
+        # Uncomment the following line, if necessary.
+        #node.vm.provision "install-kubeadm", type: "shell", :path => "ubuntu/install-kubeadm-for-dummies.sh"
       end
   end
 
@@ -92,6 +95,10 @@ Vagrant.configure("2") do |config|
         end
 
         node.vm.provision "setup-dns", type: "shell", :path => "ubuntu/update-dns.sh"
-    end
+
+        # Install kubeadm and related stuff all-at-once for dummy.
+        # Uncomment the following line, if necessary.
+        #node.vm.provision "install-kubeadm", type: "shell", :path => "ubuntu/install-kubeadm-for-dummies.sh"
+      end
   end
 end
