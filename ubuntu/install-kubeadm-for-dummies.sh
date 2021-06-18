@@ -59,16 +59,16 @@ cat <<EOF | sudo tee /etc/docker/daemon.json
 EOF
 
 
-   echo "" ; echo "--> Manage Docker as a non-root user"
-   #sudo groupadd docker
-   sudo usermod -aG docker $USER
-   newgrp docker
-
-
    echo "" ; echo "--> Restart Docker and enable on boot"
    sudo systemctl enable docker
    sudo systemctl daemon-reload
    sudo systemctl restart docker
+
+   echo "" ; echo "--> Manage Docker as a non-root user"
+   #sudo groupadd docker
+   sudo usermod -aG docker $USER
+   sudo usermod -aG docker vagrant
+   #newgrp - docker
 
 
 
